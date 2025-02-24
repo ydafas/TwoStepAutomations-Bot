@@ -56,7 +56,7 @@ def add_product():
     inventory[product_id] = {"name": name, "quantity": quantity, "price": price}
     return jsonify({"message": "Product added", "product": inventory[product_id]}), 201
 
-# ✅ Run Flask Server
+# ✅ Run Flask Server for Heroku Deployment
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5001))  # Different port to avoid conflict
+    port = int(os.environ.get("PORT", 5001))  # Default for local testing; Heroku overrides
     app.run(host='0.0.0.0', port=port, debug=True)

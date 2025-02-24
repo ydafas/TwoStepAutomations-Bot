@@ -1,0 +1,13 @@
+services:
+  - name: chatbot-api
+    type: web
+    env: python
+    repo: https://github.com/ydafas/TwoStepAutomations-Bot
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: FB_PAGE_TOKEN
+        sync: false
+      - key: VERIFY_TOKEN
+        sync: false

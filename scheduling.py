@@ -59,7 +59,7 @@ def view_appointment(customer_id):
         return jsonify({"appointment": schedules[customer_id]}), 200
     return jsonify({"error": "No appointment found"}), 404
 
-# ✅ Run Flask Server
+# ✅ Run Flask Server for Heroku Deployment
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5002))  # Different port to avoid conflict
+    port = int(os.environ.get("PORT", 5002))  # Default for local testing; Heroku overrides
     app.run(host='0.0.0.0', port=port, debug=True)
